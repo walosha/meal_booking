@@ -13,7 +13,7 @@ export class AuthService {
     private config: ConfigService,
   ) {}
 
-  async register(registerDto: RegisterDto) {
+  async signIn(registerDto: RegisterDto) {
     const { email, password } = registerDto;
     const user = await this.prisma.user.findUnique({ where: { email } });
     //throw error if it does not
