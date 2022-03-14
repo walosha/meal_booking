@@ -33,15 +33,22 @@ model Meal {
   id Int @id @unique @default(autoincrement())
   name String
   date DateTime
+  created_by Int
   mealType MealType @default(BREAKFAST)
   createdAt  DateTime   @default(now())
   updatedAt  DateTime   @default(now())
+  userMeal User_Meal[]
+ @@map("meals")
+
 }
 
 model User_Meal {
   id Int @id @unique @default(autoincrement())
   User User @relation(fields: [userId],references: [id])
+  Meal Meal @relation(fields: [mealId],references: [id])
   userId Int
+  mealId Int
   createdAt  DateTime   @default(now())
   updatedAt  DateTime   @default(now())
+   @@map("users_meals")
 }

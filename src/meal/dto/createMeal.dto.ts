@@ -1,5 +1,5 @@
 import { MealType } from '@prisma/client';
-import { IsIn, IsNotEmpty } from 'class-validator';
+import { IsIn, IsNotEmpty, IsNumber } from 'class-validator';
 
 export class CreateMealDto {
   @IsNotEmpty()

@@ -34,11 +34,11 @@ export class AuthService {
 
   async signInToken(email: string, userId: number): Promise<string> {
     const JWT_SECRET = this.config.get('JWT_SECRET');
-    const payload = { email, sub: userId };
+    const payload = { email, id: userId };
 
     return await this.jwt.signAsync(payload, {
       secret: JWT_SECRET,
-      expiresIn: '20m',
+      expiresIn: '120m',
     });
   }
 

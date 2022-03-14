@@ -2,8 +2,7 @@ import { Module } from '@nestjs/common';
 import { AuthModule } from './auth/auth.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { ConfigModule } from '@nestjs/config';
-import { MealService } from './meal/meal.service';
-import { MealController } from './meal/meal.controller';
+import { MealModule } from './meal/meal.module';
 
 @Module({
   imports: [
@@ -12,8 +11,7 @@ import { MealController } from './meal/meal.controller';
     }),
     AuthModule,
     PrismaModule,
+    MealModule,
   ],
-  controllers: [MealController],
-  providers: [MealService],
 })
 export class AppModule {}
