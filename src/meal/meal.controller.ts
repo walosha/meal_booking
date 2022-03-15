@@ -21,7 +21,14 @@ import { MealService } from './meal.service';
 export class MealController {
   constructor(private mealService: MealService) {}
   @Get('all')
-  getAllMeals() {}
+  getAllMeals() {
+    return this.mealService.getAllMeal();
+  }
+
+  @Get('staff')
+  getAllStaffbyMeal() {
+    return this.mealService.getAllMealByStaff();
+  }
 
   @Get('one')
   getOneMeal() {}
