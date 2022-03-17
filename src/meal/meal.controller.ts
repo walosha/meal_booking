@@ -8,10 +8,8 @@ import {
   Post,
   UseGuards,
 } from '@nestjs/common';
-import { User } from '@prisma/client';
 import { JWTGuard } from 'src/auth/guards';
-import { GetCurrentUser, GetCurrentUserId } from 'src/commons';
-import { GetUser } from 'src/commons/get-user.decorator';
+import { GetCurrentUserId } from 'src/commons';
 import { BookMealDto } from './dto/bookMeal.dto';
 import { CreateMealDto } from './dto/createMeal.dto';
 import { MealService } from './meal.service';
@@ -42,7 +40,7 @@ export class MealController {
     return this.mealService.createOneMeal(createMealDto, userId);
   }
 
-  @Post('book_meal')
+  @Post('book')
   @HttpCode(HttpStatus.CREATED)
   bookMeal(
     @Body() bookMealDto: BookMealDto,
